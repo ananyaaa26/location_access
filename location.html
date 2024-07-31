@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Access</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let database = [
+            { username: "ananya", password: "1234" },
+            { username: "saumya", password: "4567" },
+            { username: "arshpal", password: "9876" },
+            { username: "abha", password: "5678" },
+            { username: "aanchal", password: "7654" }
+        ];
+
+        function isUserValid(username, password) {
+            for (let i = 0; i < database.length; i++) {
+                if (database[i].username === username && database[i].password === password) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function accessLocation() {
+            let location = prompt("Enter your location:");
+
+            if (location === "punjab" || location === "chandigarh" || location === "haryana") {
+                let username = prompt("Enter your username:");
+                let password = prompt("Enter your password:");
+
+                if (isUserValid(username, password)) {
+                    if (location === "punjab") {
+                        window.location.href = "https://www.google.com/maps/place/Punjab/@31.0046133,72.7679739,7z/data=!3m1!4b1!4m6!3m5!1s0x391964aa569e7355:0x8fbd263103a38861!8m2!3d31.1471305!4d75.3412179!16zL20vMDc1X3Qy?entry=ttu";
+                    } else if (location === "chandigarh") {
+                        window.location.href = "https://www.google.com/maps/place/Chandigarh/@30.732402,76.6883105,12z/data=!3m1!4b1!4m6!3m5!1s0x390fed0be66ec96b:0xa5ff67f9527319fe!8m2!3d30.7333148!4d76.7794179!16zL20vMDFmMXE4?entry=ttu";
+                    } else if (location === "haryana") {
+                        window.location.href = "https://www.google.com/maps/place/Haryana/@29.2691998,73.3960833,7z/data=!3m1!4b1!4m6!3m5!1s0x390db00b8670400b:0x732eaab4aaa6c143!8m2!3d29.0587757!4d76.085601!16zL20vMDNwN3I?entry=ttu";
+                    }
+                } else {
+                    alert("Wrong credentials.");
+                }
+            } else {
+                alert("Access denied.");
+            }
+        }
+
+        accessLocation();
+    </script>
+</body>
+</html>
